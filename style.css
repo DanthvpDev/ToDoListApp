@@ -1,0 +1,23 @@
+* {
+    color: #454545;
+}
+
+body {
+    background-color: #FFF7EA;
+}
+
+.error {
+    outline: 2px solid rgb(235, 82, 82);
+}
+
+.popUpAnimation {
+    transition: all 1s;
+    animation: 2s popUp;
+}
+
+@keyframes popUp {
+
+    70% {opacity: 1;}
+    90% {opacity: .5;}
+    100% {opacity: .1;}
+}
