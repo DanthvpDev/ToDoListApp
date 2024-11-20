@@ -20,8 +20,9 @@ function addTask() {
     
     //? If the input is not empty
     if(IsNotEmpty(inputTask)) {
-        listItem.className += 'text-pretty font-semibold flex items-center bg-aqua-green rounded-md justify-between px-2 py-2 text-cream transition-transform hover:transition-transform hover:bg-aqua-green-800 ListItem'
+        listItem.className += 'text-pretty cursor-pointer font-semibold flex items-center bg-aqua-green rounded-md justify-between px-2 py-2 text-cream transition-transform hover:transition-transform hover:bg-aqua-green-500 ListItem'
         listItem.innerHTML = `${inputTask.value} <button class=" bg-delete bg-cover bg-no-repeat rounded-md h-8 w-8 deleteButton"></button>`
+        taskDone(listItem);
 
         toDoList.appendChild(listItem);
 
@@ -55,10 +56,22 @@ function addDeleteTask(element) {
 
 }
 
+function taskDone(element) {
+    element.addEventListener('click', ()=> {
+        element.classList.toggle('bg-slate-500')
+        element.classList.toggle('bg-aqua-green')
+        element.classList.toggle('hover:bg-aqua-green-500')
+        element.classList.toggle('hover:bg-slate-800')
+        console.log(element)
+    })
+}
+
 //? Addition of event listeners
 addButton.addEventListener('click', addTask, false);
+
 inputTask.addEventListener('keypress', (event)=> {
     if(event.key == "Enter"){
         addTask();
     }
 })
+
