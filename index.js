@@ -11,9 +11,6 @@ function IsNotEmpty(input) {
     return input.value != '' ? true : false
 }
 
-
-
-
 //? This adds a task into the list of To Do task article
 function addTask() {
     inputTask.classList.remove('error');
