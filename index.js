@@ -37,27 +37,28 @@ function addTask() {
         inputTask.classList.toggle('error');
         infoPopUp.classList.toggle('popUpAnimation');
         infoPopUp.classList.toggle('bg-myRed-800');
-        paragraph.textContent = 'No ha escrtio su tarea';
+        paragraph.textContent = 'Input empty.';
     }
 
     inputTask.value = ""; 
     
 }
 
-//? This function deletes the task
+//? Function to delete the task
 function addDeleteTask(element) {
     
     let listItem = element.parentElement;
     element.addEventListener('click', ()=> {
         listItem.remove();
-        infoPopUp.classList.toggle('popUpAnimation');
-        infoPopUp.classList.toggle('bg-aqua-green');
+        infoPopUp.classList.remove('popUpAnimation', 'bg-aqua-green');
         void infoPopUp.offsetWidth;
-        paragraph.textContent = 'Tarea eliminada exitosamente';
+        infoPopUp.classList.add('popUpAnimation', 'bg-aqua-green');
+        paragraph.textContent = 'Task deleted successfully';
     })
 
 }
 
+//? Addition of event listeners
 addButton.addEventListener('click', addTask, false);
 inputTask.addEventListener('keypress', (event)=> {
     if(event.key == "Enter"){
